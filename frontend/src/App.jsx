@@ -1,15 +1,15 @@
-import './App.css'
-import { Button, Form, ListBox } from './components'
+import "./App.css";
+import { Form } from "./components";
+import { InputProvider } from "./contexts/inputContext";
 
-const App = () =>  {
-
+const App = () => {
   return (
     <div>
-      <Form/>
-      <Button text="Guardar" />
-      <ListBox/>
+      <InputProvider>
+        <Form />
+      </InputProvider>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;

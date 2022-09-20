@@ -1,5 +1,3 @@
 import PeopleForm from "./PeopleForm";
 
-export {
-  PeopleForm
-}
+export { PeopleForm };
