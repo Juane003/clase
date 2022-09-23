@@ -23,8 +23,8 @@ mongoose.connect(connectionString)
 const userSchema = new Schema({
   nombre: String,
   apellido: String,
-  fnacto: Date,
-  dni: {
+  fnacto: String,
+  dni: {  
     tipo: String,
     numero: Number
   },
@@ -38,9 +38,42 @@ const userSchema = new Schema({
 
 const User = model("User", userSchema);
 
-User.find({}).then(result => {
-  console.log(result);
-  mongoose.connection.close();
+
+app.get("/", (request, response) => {
+  User.find({}).then(user => {
+    response.json(user)
+  });
+});
+
+
+app.post('/users/create', (request, response) => {
+
+  const { nombre, apellido, fnacto, dni, domicilio, } = request.body
+
+  const { nro, tipo } = dni;
+  
+  const { calle, numero, provincia, localidad } = domicilio
+
+  const user = new User({
+    nombre: nombre,
+    apellido: apellido,
+    fnacto: fnacto,
+    dni: {
+      tipo: tipo,
+      numero: nro
+    },
+    domicilio : {
+      calle: calle,
+      numero: numero,
+      provincia: provincia,
+      localidad: localidad
+    }
+  });
+
+  user.save().then(savedUser => {
+    response.json(savedUser)
+  });
+
 })
 
 app.get("/", (req, res) => {

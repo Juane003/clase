@@ -9,7 +9,7 @@ const utils = require("./utils/utils")
 
 const { formatName, pagination } = utils;
 
-const PORT = 3001;
+const PORT = 3000;
 
 const app = express();
 

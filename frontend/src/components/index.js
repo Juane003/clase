@@ -7,6 +7,7 @@ import { TextInput } from "./TextInput";
 import { DateInput } from "./DateInput";
 import { ListBox } from "./Listbox";
 import { ComboBox } from "./ComboBox";
+import { Modal } from "./Modal"
 
 
-export { Button, Form, TextInput, ListBox, DateInput, PeopleForm, LocationForm, ComboBox };
+export { Button, Form, TextInput, ListBox, DateInput, PeopleForm, LocationForm, ComboBox, Modal };
